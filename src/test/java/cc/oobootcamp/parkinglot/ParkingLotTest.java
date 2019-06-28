@@ -25,4 +25,26 @@ public class ParkingLotTest {
 
         assertTrue(parkingLot.getAllCars().contains(car));
     }
+
+    @Test
+    void should_not_return_a_ticket_when_park_car_given_the_parking_lot_with_available_space() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        parkingLot.park(new Car());
+        Car car = new Car();
+
+        Ticket ticket = parkingLot.park(car);
+
+        assertNull(ticket);
+    }
+
+    @Test
+    void should_not_save_the_car_into_parking_lot_when_park_car_given_the_parking_lot_with_available_space() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        parkingLot.park(new Car());
+        Car car = new Car();
+
+        parkingLot.park(car);
+
+        assertFalse(parkingLot.getAllCars().contains(car));
+    }
 }

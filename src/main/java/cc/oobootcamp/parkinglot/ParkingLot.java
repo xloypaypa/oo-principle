@@ -15,8 +15,12 @@ public class ParkingLot {
     }
 
     public Ticket park(Car car) {
-        this.cars.add(car);
-        return new Ticket();
+        if (this.cars.size() < this.capacity) {
+            this.cars.add(car);
+            return new Ticket();
+        } else {
+            return null;
+        }
     }
 
     public Collection<Object> getAllCars() {
