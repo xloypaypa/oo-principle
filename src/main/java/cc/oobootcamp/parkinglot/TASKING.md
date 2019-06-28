@@ -5,7 +5,7 @@
 ---
 **GIVEN** a car and the parking lot without available space  
 **WHEN** the car go into parking lot  
-**THEN** show "No enough space."  
+**THEN** not let it go in, and not give ticket  
 
 ---
 **GIVEN** a valid ticket and a parking lot
