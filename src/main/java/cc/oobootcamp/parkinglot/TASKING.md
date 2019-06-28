@@ -1,6 +1,6 @@
 **GIVEN** a car and the parking lot with available space  
 **WHEN** the car go into parking lot  
-**THEN** let it go in, assign ticket and show "Parking successfully, pick up your ticket." 
+**THEN** let it go in, and give a ticket 
 
 ---
 **GIVEN** a car and the parking lot without available space  
