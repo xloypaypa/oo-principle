@@ -26,4 +26,8 @@ public class ParkingLot {
     public Collection<Object> getAllCars() {
         return new ArrayList<>(this.cars);
     }
+
+    public Car pickUpCarBy(Ticket ticket) {
+        return null;
+    }
 }

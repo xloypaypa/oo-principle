@@ -47,4 +47,15 @@ public class ParkingLotTest {
 
         assertFalse(parkingLot.getAllCars().contains(car));
     }
+
+    @Test
+    void should_get_the_car_which_match_ticket_when_pick_up_car_given_the_ticket_is_valid() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        Ticket ticket = parkingLot.park(car);
+
+        Car theCarPickedUp = parkingLot.pickUpCarBy(ticket);
+
+        assertEquals(car, theCarPickedUp);
+    }
 }
