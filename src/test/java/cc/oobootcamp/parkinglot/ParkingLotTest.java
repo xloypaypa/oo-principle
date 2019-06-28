@@ -50,12 +50,24 @@ public class ParkingLotTest {
 
     @Test
     void should_get_the_car_which_match_ticket_when_pick_up_car_given_the_ticket_is_valid() {
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(2);
+        parkingLot.park(new Car());
         Car car = new Car();
         Ticket ticket = parkingLot.park(car);
 
         Car theCarPickedUp = parkingLot.pickUpCarBy(ticket);
 
         assertEquals(car, theCarPickedUp);
+    }
+
+    @Test
+    void should_not_get_the_car_when_pick_up_car_given_the_ticket_is_invalid() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        parkingLot.park(car);
+
+        Car theCarPickedUp = parkingLot.pickUpCarBy(new Ticket());
+
+        assertNull(theCarPickedUp);
     }
 }

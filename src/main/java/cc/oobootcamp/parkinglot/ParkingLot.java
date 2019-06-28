@@ -2,32 +2,34 @@ package cc.oobootcamp.parkinglot;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ParkingLot {
 
     private final int capacity;
-    private final List<Car> cars;
+    private final Map<Ticket, Car> cars;
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
-        this.cars = new ArrayList<>();
+        this.cars = new HashMap<>();
     }
 
     public Ticket park(Car car) {
         if (this.cars.size() < this.capacity) {
-            this.cars.add(car);
-            return new Ticket();
+            Ticket ticket = new Ticket();
+            this.cars.put(ticket, car);
+            return ticket;
         } else {
             return null;
         }
     }
 
-    public Collection<Object> getAllCars() {
-        return new ArrayList<>(this.cars);
+    public Collection<Car> getAllCars() {
+        return this.cars.values();
     }
 
     public Car pickUpCarBy(Ticket ticket) {
-        return null;
+        return this.cars.get(ticket);
     }
 }
