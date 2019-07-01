@@ -30,6 +30,7 @@ public class ParkingManager extends ParkingBoy {
 
     @Override
     public Car pick(Ticket ticket) {
+        //todo: 前人智障要不要重构？讲道理其实应该是要根据异常来
         Car car = super.pick(ticket);
         if (car != null) {
             return car;
