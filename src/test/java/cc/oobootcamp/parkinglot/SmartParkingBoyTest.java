@@ -34,19 +34,19 @@ public class SmartParkingBoyTest {
         assertNull(firstParkingLot.pickUpCarBy(ticket));
         assertNotNull(secondParkingLot.pickUpCarBy(ticket));
     }
-//
-//    @Test(expected = NoSpaceException.class)
-//    public void should_get_no_space_exception_when_park_car_given_both_two_parking_lot_not_have_enough_space() {
-//        ParkingLot firstParkingLot = new ParkingLot(1);
-//        firstParkingLot.park(new Car());
-//        ParkingLot secondParkingLot = new ParkingLot(1);
-//        secondParkingLot.park(new Car());
-//        ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
-//
-//        parkingBoy.park(new Car());
-//
-//        fail();
-//    }
+
+    @Test(expected = NoSpaceException.class)
+    public void should_get_no_space_exception_when_park_car_given_both_two_parking_lot_not_have_enough_space() {
+        ParkingLot firstParkingLot = new ParkingLot(1);
+        firstParkingLot.park(new Car());
+        ParkingLot secondParkingLot = new ParkingLot(1);
+        secondParkingLot.park(new Car());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
+
+        smartParkingBoy.park(new Car());
+
+        fail();
+    }
 //
 //    @Test
 //    public void should_get_a_car_when_pick_car_give_the_ticket_is_match_the_car_parked_by_parking_boy() {
