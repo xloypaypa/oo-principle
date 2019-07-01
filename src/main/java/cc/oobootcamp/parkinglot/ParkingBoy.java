@@ -19,4 +19,14 @@ public class ParkingBoy {
         }
         throw new NoSpaceException();
     }
+
+    public Car pick(Ticket ticket) {
+        for (ParkingLot parkingLot : parkingLots) {
+            Car car = parkingLot.pickUpCarBy(ticket);
+            if (car != null) {
+                return car;
+            }
+        }
+        return null;
+    }
 }
