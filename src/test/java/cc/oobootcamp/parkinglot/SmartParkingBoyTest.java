@@ -47,28 +47,28 @@ public class SmartParkingBoyTest {
 
         fail();
     }
-//
-//    @Test
-//    public void should_get_a_car_when_pick_car_give_the_ticket_is_match_the_car_parked_by_parking_boy() {
-//        ParkingLot firstParkingLot = new ParkingLot(1);
-//        ParkingLot secondParkingLot = new ParkingLot(1);
-//        ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
-//        Car carParked = new Car();
-//        Ticket ticket = parkingBoy.park(carParked);
-//
-//        Car carPicked = parkingBoy.pick(ticket);
-//
-//        assertSame(carParked, carPicked);
-//    }
-//
-//    @Test
-//    public void should_not_get_a_car_when_pick_car_give_the_ticket_is_not_match_any_car_parked_by_parking_boy() {
-//        ParkingLot firstParkingLot = new ParkingLot(1);
-//        ParkingLot secondParkingLot = new ParkingLot(1);
-//        ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
-//
-//        Car carPicked = parkingBoy.pick(new Ticket());
-//
-//        assertNull(carPicked);
-//    }
+
+    @Test
+    public void should_get_a_car_when_pick_car_give_the_ticket_is_match_the_car_parked_by_parking_boy() {
+        ParkingLot firstParkingLot = new ParkingLot(1);
+        ParkingLot secondParkingLot = new ParkingLot(1);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
+        Car carParked = new Car();
+        Ticket ticket = smartParkingBoy.park(carParked);
+
+        Car carPicked = smartParkingBoy.pick(ticket);
+
+        assertSame(carParked, carPicked);
+    }
+
+    @Test
+    public void should_not_get_a_car_when_pick_car_give_the_ticket_is_not_match_any_car_parked_by_parking_boy() {
+        ParkingLot firstParkingLot = new ParkingLot(1);
+        ParkingLot secondParkingLot = new ParkingLot(1);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
+
+        Car carPicked = smartParkingBoy.pick(new Ticket());
+
+        assertNull(carPicked);
+    }
 }
