@@ -32,4 +32,12 @@ public class ParkingLot {
     public Car pickUpCarBy(Ticket ticket) {
         return this.cars.get(ticket);
     }
+
+    boolean haveAvailableSpace() {
+        return this.getAvailableSpace() > 0;
+    }
+
+    int getAvailableSpace() {
+        return this.capacity - this.cars.size();
+    }
 }
