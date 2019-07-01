@@ -17,6 +17,6 @@ public class ParkingBoy {
                 return ticket;
             }
         }
-        return null;
+        throw new NoSpaceException();
     }
 }

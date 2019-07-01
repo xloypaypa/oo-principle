@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingBoyTest {
 
@@ -34,5 +33,18 @@ public class ParkingBoyTest {
         assertNotNull(ticket);
         assertNull(firstParkingLot.pickUpCarBy(ticket));
         assertNotNull(secondParkingLot.pickUpCarBy(ticket));
+    }
+
+    @Test(expected = NoSpaceException.class)
+    public void should_get_no_space_exception_when_park_car_given_both_two_parking_lot_not_have_enough_space() {
+        ParkingLot firstParkingLot = new ParkingLot(1);
+        firstParkingLot.park(new Car());
+        ParkingLot secondParkingLot = new ParkingLot(1);
+        secondParkingLot.park(new Car());
+        ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
+
+        parkingBoy.park(new Car());
+
+        fail();
     }
 }
