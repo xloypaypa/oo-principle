@@ -47,4 +47,30 @@ public class ParkingManagerTest {
 
         fail();
     }
+
+    @Test
+    public void should_get_the_car_which_match_ticket_when_pick_up_car_given_the_ticket_is_valid() {
+        ParkingBoy parkingBoy = new GraduateParkingBoy(Collections.singletonList(new ParkingLot(1)));
+        ParkingManager parkingManager = new ParkingManager(Collections.singletonList(new ParkingLot(1)),
+                Collections.singletonList(parkingBoy));
+        Car car = new Car();
+        Ticket ticket = parkingManager.park(car);
+
+        Car theCarPickedUp = parkingManager.pick(ticket);
+
+        assertEquals(car, theCarPickedUp);
+    }
+
+    @Test
+    public void should_not_get_the_car_when_pick_up_car_given_the_ticket_is_invalid() {
+        ParkingBoy parkingBoy = new GraduateParkingBoy(Collections.singletonList(new ParkingLot(1)));
+        ParkingManager parkingManager = new ParkingManager(Collections.singletonList(new ParkingLot(1)),
+                Collections.singletonList(parkingBoy));
+        Car car = new Car();
+        parkingManager.park(car);
+
+        Car theCarPickedUp = parkingManager.pick(new Ticket());
+
+        assertNull(theCarPickedUp);
+    }
 }

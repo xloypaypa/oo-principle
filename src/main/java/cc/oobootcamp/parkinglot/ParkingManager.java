@@ -27,4 +27,19 @@ public class ParkingManager extends ParkingBoy {
         }
         throw new NoSpaceException();
     }
+
+    @Override
+    public Car pick(Ticket ticket) {
+        Car car = super.pick(ticket);
+        if (car != null) {
+            return car;
+        }
+        for (ParkingBoy parkingBoy : this.parkingBoys) {
+            car = parkingBoy.pick(ticket);
+            if (car != null) {
+                return car;
+            }
+        }
+        return null;
+    }
 }
