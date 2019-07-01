@@ -19,6 +19,12 @@ public class ParkingManager extends ParkingBoy {
             } catch (NoSpaceException ignored) {
             }
         }
+        for (ParkingLot parkingLot : this.parkingLots) {
+            Ticket ticket = parkingLot.park(car);
+            if (ticket != null) {
+                return ticket;
+            }
+        }
         return null;
     }
 }
