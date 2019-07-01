@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SmartParkingBoyTest {
+public class SmartGraduateParkingBoyTest {
 
     @Test
     public void should_return_a_ticket_and_can_get_car_from_second_parking_lot_when_second_parking_lot_have_more_space_than_first() {

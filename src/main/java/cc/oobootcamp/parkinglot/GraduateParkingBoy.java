@@ -2,11 +2,11 @@ package cc.oobootcamp.parkinglot;
 
 import java.util.List;
 
-public class ParkingBoy {
+public class GraduateParkingBoy {
 
     private final List<ParkingLot> parkingLots;
 
-    public ParkingBoy(List<ParkingLot> parkingLots) {
+    public GraduateParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
 
