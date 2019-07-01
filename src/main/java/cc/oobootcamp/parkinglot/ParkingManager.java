@@ -25,6 +25,6 @@ public class ParkingManager extends ParkingBoy {
                 return ticket;
             }
         }
-        return null;
+        throw new NoSpaceException();
     }
 }

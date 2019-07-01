@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.util.Collections;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingManagerTest {
 
@@ -34,5 +33,18 @@ public class ParkingManagerTest {
 
         assertNotNull(ticket);
         assertNull(parkingBoy.pick(ticket));
+    }
+
+    @Test(expected = NoSpaceException.class)
+    public void should_get_no_space_exception_when_park_car_given_the_parking_boy_and_manager_not_have_available_parking_lot() {
+        ParkingBoy parkingBoy = new GraduateParkingBoy(Collections.singletonList(new ParkingLot(1)));
+        ParkingManager parkingManager = new ParkingManager(Collections.singletonList(new ParkingLot(1)),
+                Collections.singletonList(parkingBoy));
+        parkingBoy.park(new Car());
+        parkingManager.park(new Car());
+
+        parkingManager.park(new Car());
+
+        fail();
     }
 }
