@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ParkingBoyTest {
 
     @Test
-    public void should_return_a_ticket_and_can_get_car_from_frist_parking_lot_when_park_car_give_two_parking_lot_with_enough_space() {
+    public void should_return_a_ticket_and_can_get_car_from_first_parking_lot_when_park_car_give_two_parking_lot_with_enough_space() {
         ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(1);
         ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(firstParkingLot, secondParkingLot));
